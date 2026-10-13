@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f7fb">
+  <title>Schedule — расписание</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Schedule — главная">  
+      <span class="brand-name">Schedule</span>
+    </a>
+    <div class="top-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Включить тёмную тему" title="Переключить светлую/тёмную тему">
+        <span class="theme-icon sun-icon" aria-hidden="true">☼</span>
+        <span class="theme-track"><span class="theme-knob"></span></span>
+        <span class="theme-icon moon-icon" aria-hidden="true">☾</span>
+      </button>
+      <button class="icon-button notification-button" id="notificationsButton" type="button" aria-label="Перейти к изменениям расписания" title="Изменения расписания">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+        <i></i>
+      </button>
+      <button class="profile-button" id="profileButton" type="button" aria-label="Профиль" title="Профиль">
+        <span class="avatar">Г</span><span class="profile-label">Профиль</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="app-layout">
+    <section class="main-column">
+      <section class="filters panel" aria-label="Фильтры расписания">
+        <label class="field">
+          <span>Курс</span>
+          <select id="courseSelect">
+            <option value="1">1 курс</option><option value="2" selected>2 курс</option><option value="3">3 курс</option><option value="4">4 курс</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Группа</span>
+          <select id="groupSelect"></select>
+        </label>
+        <div class="field week-field">
+          <span>Учебная неделя</span>
+          <div class="week-control">
+            <button id="prevWeek" class="square-button" type="button" aria-label="Предыдущая неделя">‹</button>
+            <div class="week-label"><span aria-hidden="true">▦</span><b id="weekRange">—</b></div>
+            <button id="nextWeek" class="square-button" type="button" aria-label="Следующая неделя">›</button>
+          </div>
+        </div>
+        <div class="week-toggle" role="group" aria-label="Тип учебной недели">
+          <button id="numeratorButton" type="button">Числитель</button>
+          <button id="denominatorButton" type="button">Знаменатель</button>
+        </div>
+      </section>
+
+      <section class="calendar panel" aria-label="Расписание на неделю">
+        <div class="calendar-head">
+          <div class="time-head">Время</div>
+          <div class="day-heads" id="dayHeads"></div>
+        </div>
+        <div id="scheduleGrid" class="schedule-grid"></div>
+        <div class="calendar-legend">
+          <span><i class="legend-dot today-dot"></i>Сегодня</span>
+          <span><i class="legend-dot lesson-dot"></i>Занятие</span>
+        </div>
+      </section>
+    </section>
+
+    <aside class="sidebar">
+      <section class="panel today-panel">
+        <div class="panel-heading">
+          <div><h2>Сегодня</h2><p id="todayDate">—</p></div>
+          <span id="todayWeekBadge" class="week-badge">—</span>
+        </div>
+        <div id="todayLessons" class="today-lessons"></div>
+        <button class="primary-button full-width" id="goToday" type="button">▦ &nbsp; Перейти к сегодняшнему дню</button>
+      </section>
+
+      <section class="panel changes-panel" id="changesPanel">
+        <div class="panel-heading">
+          <div><h2>Изменения в расписании</h2><p>Отмены, переносы и замены</p></div>
+          <span class="changes-status">Обновления</span>
+        </div>
+        <div id="changesList" class="changes-list"></div>
+      </section>
+
+      <section class="panel week-info">
+        <div class="week-icon">▦</div>
+        <div class="week-info-copy">
+          <b>Учебная неделя</b>
+          <p id="weekInfoType">—</p>
+          <small>Тип недели переключается автоматически.</small>
+        </div>
+        <span class="auto-pill"><i></i> Авто</span>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand"><b>Schedule</b><small>Расписание занятий без лишнего.</small></div>
+      <div class="footer-links" aria-label="Полезные ссылки">
+        <button type="button" class="footer-link" id="contactButton">Связаться</button>
+        <button type="button" class="footer-link" id="communityButton">Сообщество</button>
+      </div>
+    </div>
+    <div class="footer-bottom"><small>© <span id="footerYear"></span> Schedule</small><small>Made with <span class="footer-heart" aria-hidden="true">♥</span> by Step</small></div>
+  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
