@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Мой профиль — Schedule</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/account.css">
+</head>
+<body class="account-page">
+  <header class="account-topbar">
+    <a class="account-brand" href="index.html">← Schedule</a>
+    <span class="account-top-label">Личный кабинет</span>
+  </header>
+  <main class="account-shell">
+    <section class="account-heading">
+      <p class="eyebrow">SCHEDULE / ACCOUNT</p>
+      <h1>Мой профиль</h1>
+      <p class="muted">Настройки аккаунта и информация о доступе.</p>
+    </section>
+    <section id="loadingCard" class="account-card"><p>Проверяем сессию…</p></section>
+    <section id="signedOutCard" class="account-card" hidden>
+      <h2>Сначала войди в аккаунт</h2>
+      <p class="muted">Для просмотра профиля нужна авторизация.</p>
+      <a class="account-primary" href="index.html">Перейти к входу</a>
+    </section>
+    <section id="profileCard" class="account-card" hidden>
+      <div class="account-user-head">
+        <div id="avatar" class="account-avatar">S</div>
+        <div><h2 id="displayName">Пользователь</h2><p id="email" class="muted"></p></div>
+        <span id="roleBadge" class="role-badge">user</span>
+      </div>
+      <div class="account-details">
+        <div><span>Учебная группа</span><strong id="groupName">Не указана</strong></div>
+        <div><span>Роль в Schedule</span><strong id="roleName">Пользователь</strong></div>
+      </div>
+      <p id="profileMessage" class="account-message" role="status"></p>
+      <div class="account-actions">
+        <a class="account-secondary" href="index.html">Открыть расписание</a>
+        <a id="adminLink" class="account-primary" href="admin.html" hidden>Админ-панель</a>
+        <button id="signOut" class="account-secondary" type="button">Выйти</button>
+      </div>
+    </section>
+  </main>
+  <script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/account.js"></script>
+</body>
+</html>

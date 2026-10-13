@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Управление пользователями — Schedule</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/account.css">
+</head>
+<body class="account-page">
+  <header class="account-topbar">
+    <a class="account-brand" href="index.html">← Schedule</a>
+    <a class="account-top-label" href="profile.html">Мой профиль</a>
+  </header>
+  <main class="account-shell account-shell-wide">
+    <section class="account-heading">
+      <p class="eyebrow">SCHEDULE / ADMIN</p>
+      <h1>Управление пользователями</h1>
+      <p class="muted">Назначай роли только тем пользователям, которым действительно нужен расширенный доступ.</p>
+    </section>
+    <section id="adminLoading" class="account-card"><p>Проверяем права доступа…</p></section>
+    <section id="adminDenied" class="account-card" hidden>
+      <h2>Нет доступа</h2><p class="muted">Эта страница доступна только администраторам.</p>
+      <a class="account-primary" href="profile.html">Вернуться в профиль</a>
+    </section>
+    <section id="adminPanel" class="account-card" hidden>
+      <div class="admin-toolbar">
+        <div><h2>Пользователи</h2><p id="userCount" class="muted">Загрузка списка…</p></div>
+        <input id="userSearch" type="search" placeholder="Поиск по email или имени" aria-label="Поиск пользователей">
+      </div>
+      <p id="adminMessage" class="account-message" role="status"></p>
+      <div class="table-scroll">
+        <table class="users-table">
+          <thead><tr><th>Пользователь</th><th>Группа</th><th>Роль</th><th>Зарегистрирован</th><th></th></tr></thead>
+          <tbody id="usersBody"><tr><td colspan="5">Загружаем пользователей…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="muted admin-note">Изменение роли применяется в базе данных. Назначение роли не добавляет пока инструменты редактирования расписания.</p>
+    </section>
+  </main>
+  <script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
