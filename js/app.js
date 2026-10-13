@@ -214,7 +214,7 @@
     const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
     applyTheme(next);
   });
-  $("profileButton").addEventListener("click",()=>showToast("Личный кабинет подключим вместе с авторизацией и базой данных."));
+
   $("contactButton").addEventListener("click",()=>showToast("Добавим ссылку для связи перед публикацией."));
   $("communityButton").addEventListener("click",()=>showToast("Ссылку на сообщество добавим, когда выберем площадку."));
   $("footerYear").textContent = new Date().getFullYear();

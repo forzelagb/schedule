@@ -111,8 +111,38 @@
     </div>
     <div class="footer-bottom"><small>© <span id="footerYear"></span> Schedule</small><small>Made with <span class="footer-heart" aria-hidden="true">♥</span> by Step</small></div>
   </footer>
+  <section class="auth-overlay" id="authOverlay" hidden>
+    <div class="auth-dialog panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="auth-close" id="authClose" type="button" aria-label="Закрыть">×</button>
+      <div class="auth-heading">
+        <span class="auth-mark">S</span>
+        <div><h2 id="authTitle">Профиль Schedule</h2><p id="authSubtitle">Войди или создай аккаунт</p></div>
+      </div>
+      <div class="auth-tabs" role="tablist" aria-label="Авторизация">
+        <button type="button" class="auth-tab active" id="loginTab">Войти</button>
+        <button type="button" class="auth-tab" id="signupTab">Регистрация</button>
+      </div>
+      <form id="authForm" class="auth-form">
+        <label class="auth-field" id="displayNameField" hidden><span>Имя</span><input id="authDisplayName" type="text" autocomplete="name" maxlength="80" placeholder="Как тебя называть?"></label>
+        <label class="auth-field"><span>Электронная почта</span><input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+        <label class="auth-field"><span>Пароль</span><input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Минимум 6 символов"></label>
+        <p class="auth-message" id="authMessage" role="status" aria-live="polite"></p>
+        <button class="primary-button full-width auth-submit" id="authSubmit" type="submit">Войти</button>
+      </form>
+      <div class="auth-account" id="authAccount" hidden>
+        <div class="account-avatar" id="accountAvatar">S</div>
+        <strong id="accountName">Пользователь</strong>
+        <span id="accountEmail"></span>
+        <button class="primary-button full-width" id="signOutButton" type="button">Выйти из аккаунта</button>
+      </div>
+      <p class="auth-footnote">Расписание доступно без аккаунта. Профиль нужен для персональных функций.</p>
+    </div>
+  </section>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/data.js"></script>
+  <script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>

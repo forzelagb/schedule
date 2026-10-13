@@ -37,3 +37,16 @@
 - Админские роли, права старост и публикация изменений через интерфейс.
 
 GitHub Pages — только статический хостинг. Когда будем подключать аккаунты и совместное редактирование, потребуется backend/сервис авторизации и база данных. Секретные ключи сервисов нельзя помещать в клиентский JavaScript.
+
+
+## Подключение Supabase Auth
+
+1. Открой `js/config.js`.
+2. Замени `PASTE_YOUR_SUPABASE_PROJECT_URL_HERE` на Project URL из Supabase.
+3. Замени `PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE` на Publishable key (`sb_publishable_...`).
+4. Не вставляй Secret key или `service_role` key во фронтенд.
+5. В Supabase открой Authentication → URL Configuration и добавь URL опубликованного сайта в Site URL / Redirect URLs, например `https://forzelabg.github.io/schedule/**`.
+6. Для регистрации с подтверждением почты проверь шаблоны писем и URL подтверждения в настройках Auth. После регистрации пользователь должен открыть письмо, подтвердить email и войти.
+7. Загрузи обновлённые файлы на GitHub Pages. Профиль открывается по кнопке «Профиль».
+
+`js/config.js` содержит только публичный Project URL и Publishable key. Безопасность таблицы `profiles` обеспечивают RLS-политики в базе данных, а не секретность этих значений.
