@@ -1,7 +1,3 @@
--- Schedule: secure role management RPCs
--- Run in Supabase SQL Editor as project owner/admin.
-
--- Add a default role row for every existing profile/user. Existing admin role is preserved.
 insert into public.user_roles (user_id, role)
 select u.id, 'user'
 from auth.users u

@@ -206,17 +206,11 @@
     const now=new Date(); state.weekStart=startOfWeek(now); state.selectedDate=now; state.manualWeekType=null; renderAll();
     document.querySelector(".calendar").scrollIntoView({behavior:"smooth",block:"start"});
   });
-  $("notificationsButton").addEventListener("click",()=>{
-    $("changesPanel").scrollIntoView({behavior:"smooth",block:"center"});
-    showToast("Изменения расписания");
-  });
   $("themeToggle").addEventListener("click",()=>{
     const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
     applyTheme(next);
   });
 
-  $("contactButton").addEventListener("click",()=>showToast("Добавим ссылку для связи перед публикацией."));
-  $("communityButton").addEventListener("click",()=>showToast("Ссылку на сообщество добавим, когда выберем площадку."));
   $("footerYear").textContent = new Date().getFullYear();
   initTheme(); renderAll();
   document.addEventListener("visibilitychange",()=>{ if (!document.hidden) syncCalendarToToday(); });

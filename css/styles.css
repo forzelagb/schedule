@@ -174,7 +174,7 @@ button:focus-visible, select:focus-visible { outline: 3px solid var(--accent); o
 .footer-brand b { color:var(--text); font-size:18px; letter-spacing:-.4px; }
 .footer-brand small { color:var(--muted); font-size:12px; }
 .footer-links { display:flex; align-items:center; gap:10px; }
-.footer-link { padding:10px 15px; border:1px solid var(--line-strong); border-radius:10px; color:var(--text); background:var(--surface-soft); font-size:12px; font-weight:600; }
+.footer-link { display:inline-flex; align-items:center; justify-content:center; text-decoration:none; cursor:pointer; padding:10px 15px; border:1px solid var(--line-strong); border-radius:10px; color:var(--text); background:var(--surface-soft); font-size:12px; font-weight:600; }
 .footer-link:hover { color:var(--accent-text); border-color:var(--accent); background:var(--accent-soft); }
 .footer-bottom { display:flex; justify-content:space-between; align-items:center; gap:12px; padding-top:15px; border-top:1px solid var(--line); color:var(--muted); }
 .footer-bottom small { font-size:11px; }
